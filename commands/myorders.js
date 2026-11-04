@@ -1,11 +1,12 @@
 /*CMD
   command: /myorders
+  aliases: 📦 My Orders
   help: Show your order history and status
   answer: My orders
 CMD*/
 var ids = User.getProperty("my_order_ids");
 if (!ids || ids.length === 0) {
-  Bot.sendMessage("📦 এখনো আপনার কোনো অর্ডার নেই। অর্ডার করতে /buy লিখুন।");
+  Bot.sendMessage("📦 এখনো আপনার কোনো অর্ডার নেই।");
   return;
 }
 var output = "📦 YOUR ORDERS\n\n";
