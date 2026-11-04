@@ -9,13 +9,10 @@ if (String(user.telegramid) !== ROOT_ADMIN_ID) {
   return;
 }
 var buttons = [
- {title:"👥 User Control",command:"/adminusers"},
  {title:"🛍️ Product & Price",command:"/adminproducts"},
  {title:"💳 Payment Setup",command:"/adminpayments"},
  {title:"🎟️ Code Inventory",command:"/admincodes"},
- {title:"📋 Order Desk",command:"/adminorders"},
  {title:"📣 Broadcast",command:"/adminbroadcast"},
- {title:"🔧 Shop Design",command:"/admindesign"},
  {title:"⬅️ Back to Home",command:"/start"}
 ];
-Bot.sendInlineKeyboard(buttons,"✦━━━━━━ OWNER CONTROL ━━━━━━✦\n🔐 Root Admin Verified\nAdmin ID: "+user.telegramid+"\n\nসব দোকান নিয়ন্ত্রণের বিভাগ বেছে নিন।");
+Bot.sendInlineKeyboard(buttons,"✦━━━━━━ OWNER CONTROL ━━━━━━✦\n🔐 Root Admin Verified\nAdmin ID: "+user.telegramid+"\n\nসক্রিয় নিয়ন্ত্রণ: পণ্য/দাম, পেমেন্ট নম্বর, কোড স্টক ও Broadcast।");
