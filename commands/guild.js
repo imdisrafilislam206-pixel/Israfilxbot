@@ -6,4 +6,4 @@ CMD*/
 var price=Bot.getProperty("guild_glory_price");
 var stock=Bot.getProperty("guild_glory_stock")||0;
 var label=(price==null)?"Price not set":"৳"+price+" / Credit";
-Bot.sendKeyboard("🛒 All Packages, 🎟️ Guild Glory Code,\n📦 My Orders, ⬅️ Back to Home","🛡️ GUILD GLORY CREDIT\n\nPrice: "+label+"\nAvailable: "+stock+"\n\nঅর্ডার করতে Live Support চাপুন অথবা প্যাকেজ মেনু দেখুন।");
+Bot.sendInlineKeyboard([{title:"🛒 All Packages",command:"/packages"},{title:"🎟️ Guild Glory Code",command:"/codeshop"},{title:"📦 My Orders",command:"/myorders"},{title:"🎧 Contact Admin",command:"/support"},{title:"⬅️ Back to Home",command:"/start"}],"🛡️ GUILD GLORY CREDIT\n\nPrice: "+label+"\nAvailable: "+stock+"\n\nঅর্ডার/ডেলিভারির জন্য Contact Admin চাপুন।");
