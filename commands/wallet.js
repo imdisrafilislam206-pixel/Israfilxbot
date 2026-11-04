@@ -1,6 +1,11 @@
 /*CMD
   command: /wallet
-  help: Wallet information
-  answer: Wallet
+  aliases: 👤 Profile
+  help: Wallet and profile
+  answer: Profile
 CMD*/
-Bot.sendMessage("💰 WALLET\n\nএই সংস্করণে স্বয়ংক্রিয় Wallet balance বা টাকা জমার হিসাব নেই। আপনার পেমেন্ট Admin হাতে যাচাই করবেন। অর্ডারের অবস্থা দেখতে /myorders লিখুন।");
+var balance = User.getProperty("balance");
+if (balance === undefined || balance === null) { balance = 0; }
+var rank = User.getProperty("rank") || "New User";
+var ids = User.getProperty("my_order_ids") || [];
+Bot.sendMessage("👤 YOUR PROFILE\n\nName: "+(user.first_name || "")+"\nID: "+user.telegramid+"\nBalance: ৳"+balance+"\nRank: "+rank+"\nTotal Orders: "+ids.length);
