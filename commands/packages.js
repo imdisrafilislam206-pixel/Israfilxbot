@@ -1,6 +1,11 @@
 /*CMD
   command: /packages
   aliases: 🛒 All Packages
-  help: Browse shop categories
+  help: Browse all shop categories
 CMD*/
-Bot.sendKeyboard("💎 Diamond Top-Up, 🛡️ Guild Glory Credit,\n🎟️ Code Shop, ⬅️ Back to Home", "🛒 SHOP CATEGORIES\n\nএকটি ক্যাটাগরি বেছে নিন। পণ্যের মূল্য ও স্টক অ্যাডমিন প্যানেল থেকে সেট করা হবে।");
+var k = "💎 Diamond Top-Up, 🛡️ Guild Glory Credit,\n🎟️ Guild Glory Code, 📅 Weekly Membership,\n📆 Monthly Membership, 🏆 Level Up / Other Items,\n⬅️ Back to Home";
+var p = Bot.getProperty("shop_packages") || [];
+var msg = "🛍️ ISRAFILX PACKAGE STORE\n\n";
+if (!p.length) msg += "প্যাকেজগুলো অ্যাডমিন প্যানেল থেকে যোগ করা হবে।";
+else for (var i=0;i<p.length;i++){var x=p[i];msg += (i+1)+". "+x.name+" — ৳"+x.price+" | Stock: "+(x.stock||0)+"\n";}
+Bot.sendKeyboard(k,msg);
