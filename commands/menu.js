@@ -4,6 +4,6 @@
   answer: ISRAFILXSHOP Menu
   keyboard: 🛒 Packages, 💳 Deposit
   keyboard: 💰 Wallet, 📦 My Orders
-  keyboard: 🎧 Support
+  keyboard: 💬 Private Support
 CMD*/
-Bot.sendMessage("🛍️ ISRAFILXSHOP MENU\n\n🛒 প্যাকেজ: /packages\n📝 অর্ডার: /buy\n💳 পেমেন্ট নির্দেশনা: /deposit\n💰 Wallet: /wallet\n📦 আমার অর্ডার: /myorders\n🎧 Support: /support");
+Bot.sendMessage("✨ ISRAFILXSHOP MENU\n\n🛒 প্যাকেজ: /packages\n💳 ডিপোজিট: /deposit\n💰 ওয়ালেট: /wallet\n📦 অর্ডার: /myorders\n💬 ব্যক্তিগত সাপোর্ট: /support\n👑 Admin: /admin");
