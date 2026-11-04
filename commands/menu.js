@@ -1,9 +1,13 @@
 /*CMD
   command: /menu
-  help: Show shop menu
+  help: Show clickable shop menu
   answer: ISRAFILXSHOP Menu
-  keyboard: 🛒 Packages, 💳 Deposit
-  keyboard: 💰 Wallet, 📦 My Orders
-  keyboard: 💬 Private Support
 CMD*/
-Bot.sendMessage("✨ ISRAFILXSHOP MENU\n\n🛒 প্যাকেজ: /packages\n💳 ডিপোজিট: /deposit\n💰 ওয়ালেট: /wallet\n📦 অর্ডার: /myorders\n💬 ব্যক্তিগত সাপোর্ট: /support\n👑 Admin: /admin");
+var buttons = [
+  [{title:"🛒 সব প্যাকেজ",command:"/packages"},{title:"💎 ডায়মন্ড",command:"/diamonds"}],
+  [{title:"👑 Guild Glory",command:"/guildglory"},{title:"🎟️ কোড শপ",command:"/codeshop"}],
+  [{title:"💳 ডিপোজিট",command:"/deposit"},{title:"💰 আমার ওয়ালেট",command:"/wallet"}],
+  [{title:"📦 আমার অর্ডার",command:"/myorders"},{title:"💬 প্রাইভেট সাপোর্ট",command:"/support"}],
+  [{title:"🏠 Home",command:"/start"}]
+];
+Bot.sendInlineKeyboard(buttons,"✨ ISRAFILXSHOP — মেইন মেনু\n\nএকটি অপশন বেছে নিন:");
