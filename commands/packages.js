@@ -3,9 +3,14 @@
   aliases: 🛒 All Packages
   help: Browse all shop categories
 CMD*/
-var k = "💎 Diamond Top-Up, 🛡️ Guild Glory Credit,\n🎟️ Guild Glory Code, 📅 Weekly Membership,\n📆 Monthly Membership, 🏆 Level Up / Other Items,\n⬅️ Back to Home";
 var p = Bot.getProperty("shop_packages") || [];
+var buttons = [
+ {title:"💎 Diamond Top-Up",command:"/diamond"},
+ {title:"🛡️ Guild Glory Credit",command:"/guild"},
+ {title:"🎟️ Guild Glory Code",command:"/codeshop"},
+ {title:"⬅️ Back to Home",command:"/start"}
+];
 var msg = "🛍️ ISRAFILX PACKAGE STORE\n\n";
-if (!p.length) msg += "প্যাকেজগুলো অ্যাডমিন প্যানেল থেকে যোগ করা হবে।";
-else for (var i=0;i<p.length;i++){var x=p[i];msg += (i+1)+". "+x.name+" — ৳"+x.price+" | Stock: "+(x.stock||0)+"\n";}
-Bot.sendKeyboard(k,msg);
+if (!p.length) msg += "প্যাকেজ এখনো যোগ করা হয়নি। Admin Panel থেকে পণ্য যোগ করা যাবে।";
+else for (var i=0;i<p.length;i++){var x=p[i]||{};msg += (i+1)+". "+(x.name||"Product")+" — ৳"+(x.price||0)+" | Stock: "+(x.stock||0)+"\n";}
+Bot.sendInlineKeyboard(buttons,msg);
