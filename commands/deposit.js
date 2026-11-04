@@ -1,6 +1,7 @@
 /*CMD
   command: /deposit
+  aliases: 💰 Add Funds / Deposit
   help: Manual payment instructions
   answer: Deposit instructions
 CMD*/
-Bot.sendMessage("💳 MANUAL PAYMENT\n\nপেমেন্ট করার আগে Admin-এর কাছ থেকে বর্তমান মূল্য ও সঠিক bKash/Nagad নম্বর নিশ্চিত করুন।\nপেমেন্ট করলে Transaction ID অর্ডারের সঙ্গে দিন।\n\n⚠️ Admin নিজে লেনদেন যাচাই করবেন। এই বটে স্বয়ংক্রিয় পেমেন্ট যাচাই নেই।");
+Bot.sendMessage("💳 DEPOSIT / ADD FUNDS\n\nপেমেন্ট করার আগে Admin-এর কাছ থেকে সঠিক bKash/Nagad/Rocket নম্বর ও মূল্য নিশ্চিত করুন। Transaction ID পাঠালে Admin হাতে যাচাই করবেন।\n\n⚠️ Official payment API যুক্ত না হওয়া পর্যন্ত auto verification নেই।");
