@@ -1,9 +1,10 @@
 /*CMD
   command: /start
-  help: Open ISRAFILXSHOP menu
+  help: Open ISRAFILXSHOP
   answer: Welcome to ISRAFILXSHOP
   keyboard: 🛒 Packages, 💳 Deposit
   keyboard: 💰 Wallet, 📦 My Orders
-  keyboard: 🎧 Support
+  keyboard: 💬 Private Support
 CMD*/
-Bot.sendMessage("❤️ স্বাগতম ISRAFILXSHOP-এ!\n\nFree Fire Like প্যাকেজ দেখতে /packages লিখুন। অর্ডার করতে /buy লিখুন।\n\nঅর্ডার Admin যাচাই করে Approve করবেন।");
+var name = user.first_name || "বন্ধু";
+Bot.sendMessage("👑 স্বাগতম " + name + "!\n\n🛍️ ISRAFILXSHOP\n🎮 Free Fire Top-Up & Digital Items\n\n🛒 প্যাকেজ: /packages\n💳 ডিপোজিট: /deposit\n💰 ওয়ালেট: /wallet\n📦 আমার অর্ডার: /myorders\n💬 ব্যক্তিগত সাপোর্ট: /support\n\n🔐 আপনার সাপোর্ট মেসেজ শুধু Admin দেখতে পাবেন।");
