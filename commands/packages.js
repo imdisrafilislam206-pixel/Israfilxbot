@@ -1,6 +1,11 @@
 /*CMD
   command: /packages
-  help: View Free Fire Like packages
-  answer: Free Fire Like Packages
+  help: Browse shop packages
+  answer: Packages
 CMD*/
-Bot.sendMessage("❤️ FREE FIRE LIKE PACKAGES\n\n200 Likes — 1 Day — ৳25 (উদাহরণ; Admin-এর কাছ থেকে বর্তমান মূল্য নিশ্চিত করুন)।\n\nঅর্ডার করতে /buy লিখুন। Admin মূল্য ও অর্ডার যাচাই করে জানাবেন।");
+Bot.sendInlineKeyboard([
+  [{title:"💎 ডায়মন্ড টপ-আপ",command:"/diamonds"}],
+  [{title:"👑 Guild Glory",command:"/guildglory"},{title:"🎟️ কোড শপ",command:"/codeshop"}],
+  [{title:"💳 ডিপোজিট",command:"/deposit"}],
+  [{title:"⬅️ Back",command:"/menu"},{title:"🏠 Home",command:"/start"}]
+],"🛒 ISRAFILXSHOP প্যাকেজ\n\nক্যাটাগরি বেছে নিন। দাম ও স্টক Admin সেট না করা পর্যন্ত অর্ডার নিশ্চিত হবে না।");
