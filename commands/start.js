@@ -2,9 +2,13 @@
   command: /start
   help: Open ISRAFILXSHOP
   answer: Welcome to ISRAFILXSHOP
-  keyboard: 🛒 Packages, 💳 Deposit
-  keyboard: 💰 Wallet, 📦 My Orders
-  keyboard: 💬 Private Support
 CMD*/
 var name = user.first_name || "বন্ধু";
-Bot.sendMessage("👑 স্বাগতম " + name + "!\n\n🛍️ ISRAFILXSHOP\n🎮 Free Fire Top-Up & Digital Items\n\n🛒 প্যাকেজ: /packages\n💳 ডিপোজিট: /deposit\n💰 ওয়ালেট: /wallet\n📦 আমার অর্ডার: /myorders\n💬 ব্যক্তিগত সাপোর্ট: /support\n\n🔐 আপনার সাপোর্ট মেসেজ শুধু Admin দেখতে পাবেন।");
+var buttons = [
+  [{title:"🛒 সব প্যাকেজ",command:"/packages"},{title:"💎 ডায়মন্ড",command:"/diamonds"}],
+  [{title:"👑 Guild Glory",command:"/guildglory"},{title:"🎟️ কোড শপ",command:"/codeshop"}],
+  [{title:"💳 ডিপোজিট",command:"/deposit"},{title:"💰 আমার ওয়ালেট",command:"/wallet"}],
+  [{title:"📦 আমার অর্ডার",command:"/myorders"},{title:"💬 প্রাইভেট সাপোর্ট",command:"/support"}],
+  [{title:"📢 চ্যানেল ও গ্রুপ",command:"/community"},{title:"ℹ️ সাহায্য",command:"/help"}]
+];
+Bot.sendInlineKeyboard(buttons,"👑 স্বাগতম "+name+"!\n\n🛍️ ISRAFILXSHOP\n🎮 Free Fire Top-Up & Digital Items\n\nনিচের বাটনে চাপ দিয়ে আপনার প্রয়োজনীয় সেবা বেছে নিন।");
