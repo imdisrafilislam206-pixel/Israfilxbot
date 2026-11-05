@@ -25,7 +25,7 @@ var buttons = [
   [{title:"🚀 Launch Glory Group", command:"/launch"}, {title:"📂 My Groups", command:"/groups"}],
   [{title:"🎟️ Coupons", command:"/coupons"}, {title:"📜 Transactions", command:"/transactions"}],
   [{title:"📈 History & Activity", command:"/history"}, {title:"🔔 Notifications", command:"/notifications"}],
-  [{title:"🆘 Support", command:"/support"}]
+  [{title:"💬 Contact Admin", command:"/contactadmin"}]
 ];
 if (uid === OWNER) buttons.push([{title:"👑 Owner Admin Panel", command:"/admin"}]);
 Bot.sendInlineKeyboard(buttons, "🌟 *FFGlory Reseller Panel*\n\nস্বাগতম, " + (user.first_name || "User") + "!\nনিচের বাটন থেকে সেবা নির্বাচন করুন।");
