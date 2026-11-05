@@ -1,7 +1,7 @@
 /*CMD
   command: removeuser
   help: 
-  need_reply: 
+  need_reply: true
   auto_retry_time: 
   folder: 
   answer: 
