@@ -21,4 +21,4 @@ var members = 0;
 for (var i=0; i<allowed.length; i++) if (String(allowed[i]) !== OWNER) members++;
 var orderGroup = Bot.getProperty("ffg_order_group", "Not set");
 var menu = "/adminusers, /allowuser, /removeuser,\n/grouppost, /supportinbox,\n/setordergroup, /apisetup, /account,\n/groups, /coupons,\n/transactions, /history,\n/start";
-Bot.sendKeyboard(menu, "👑 OWNER DASHBOARD\n\nBot users recorded: " + users.length + "\nApproved users: " + allowed.length + "\nApproved members (excluding owner): " + members + "\nOrder/Deposit group: " + orderGroup + "\n\nনিচের Reply Keyboard থেকে কাজ বেছে নিন।"); বটকে Start করা ব্যবহারকারীর হিসাব।");
+Bot.sendKeyboard(menu, "👑 OWNER DASHBOARD\n\nBot users recorded: " + users.length + "\nApproved users: " + allowed.length + "\nApproved members (excluding owner): " + members + "\nOrder/Deposit group: " + orderGroup + "\n\nনিচের Reply Keyboard থেকে কাজ বেছে নিন।");
