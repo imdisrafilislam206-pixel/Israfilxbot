@@ -12,6 +12,7 @@ var buttons = [
  [{title:"👥 Users & Permissions",command:"/adminusers"}],
  [{title:"➕ Allow User",command:"/allowuser"},{title:"➖ Remove User",command:"/removeuser"}],
  [{title:"📢 Group Post / Broadcast",command:"/grouppost"}],
+ [{title:"💬 Support Inbox",command:"/supportinbox"}],
  [{title:"🧾 Set Order/Deposit Group",command:"/setordergroup"}],
  [{title:"🔐 FFGlory API Setup",command:"/apisetup"},{title:"📊 API Balance",command:"/account"}],
  [{title:"📈 My Groups",command:"/groups"},{title:"🎟️ Coupons",command:"/coupons"}],
