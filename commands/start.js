@@ -8,7 +8,7 @@ var balance = User.getProperty("balance") || 0;
 var rank = User.getProperty("rank") || "Rookie";
 var orders = User.getProperty("my_orders") || [];
 var menu = Bot.getProperty("home_menu_buttons");
-if (!Array.isArray(menu) || !menu.length) {
+if (!Array.isArray(menu)) {
  menu = [
   {title:"🛡️ Guild Glory Credit",command:"/guild"},
   {title:"💎 Add Funds / Deposit",command:"/deposit"},
