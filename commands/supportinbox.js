@@ -1,3 +1,15 @@
+/*CMD
+  command: supportinbox
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /supportinbox — owner-only overview of latest private support messages.
 var OWNER = "8312390543";
 if (String(user.telegramid) !== OWNER) { Bot.sendMessage("⛔ Owner only."); return; }

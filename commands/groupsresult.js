@@ -1,3 +1,15 @@
+/*CMD
+  command: groupsresult
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /groupsresult — HTTP success callback
 var arr;try{arr=typeof content==="string"?JSON.parse(content):content;}catch(e){Bot.sendMessage("Groups response invalid.");return;}
 if(!Array.isArray(arr)){Bot.sendMessage("FFGlory: "+((arr&&arr.error)||"Group list পাওয়া যায়নি"));return;}

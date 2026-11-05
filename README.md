@@ -1,36 +1,84 @@
-# FFGlory Reseller Telegram Bot
+# Israfilxglory_bot - chat bot
+It is repository for chat bot: [@Israfilxglory_bot](https://t.me/Israfilxglory_bot)
 
-Bots.Business (BJS) project. Navigation uses Telegram inline keyboards.
+## What it is?
+This repository can be imported to [Bots.Business](https://bots.business) as a worked chat bot.
 
-## Owner
-Telegram ID: 8312390543
+[Bots.Business](https://bots.business) - it is probably the first CBPaaS - Chat Bot Platform as a Service.
 
-## Security
-- Do not commit API keys or bot tokens.
-- Configure the FFGlory API key privately through the owner-only API Setup command.
-- The API key previously pasted into chat must be rotated before use.
-- Access is allowlist-based. Only owner-approved Telegram IDs can use reseller features.
+A CBPaaS is a cloud-based platform that enables developers to create chatbots without needing to build backend infrastructure.
 
-## New communication and notification features
-- `grouppost.js`: owner-only broadcast to private chats known to the bot. Set the command's **Wait for answer / need_reply** option and its answer prompt.
-- `contactadmin.js`: user-to-owner private support. Set **need_reply** and an answer prompt. Each conversation is stored under a per-user property.
-- `adminreply.js`: owner reply flow. Set **need_reply** and an answer prompt; the owner taps the Reply button on a support message or Support Inbox, then sends the reply.
-- `supportinbox.js`: owner-only list of recent support threads (up to 20 at a time).
-- `setordergroup.js`: owner sets the destination group as a numeric chat ID (recommended) or public @username. Set **need_reply** and an answer prompt.
-- `orderlog.js`: internal event hook. Call it after an order is created, completed, or a deposit is received:
-  `Bot.runCommand("/orderlog", {event:"ORDER_CREATED", order_id:"123", user_id:"456", product:"Product name", amount:"100"});`
-  Use `ORDER_COMPLETED` or `DEPOSIT_RECEIVED` for those events. This hook must be called from the relevant order/API success and admin-complete commands to send the group notification.
+## Create your own bot for Telegram from this Git repo
 
-## Setup
-1. Import the `commands/` files into Bots.Business and Git Sync the repository.
-2. Set command names to the filename without `.js`.
-3. Set **Wait for answer / need_reply** on: `allowuser`, `removeuser`, `apisetup`, `grouppost`, `contactadmin`, `adminreply`, and `setordergroup`. Configure a suitable answer prompt for each.
-4. Add the bot to the order notification group and allow it to send messages. Set the group chat ID from Owner Admin Panel.
-5. Wire `/orderlog` into each actual order-created, order-completed, and deposit-success handler. It is not a payment provider webhook by itself.
+How to create bot?
+1. Create bot with [@BotFather](https://telegram.me/BotFather) and take Secret Token
+2. Create bot in App and add Secret Token
+3. Add Public Key from App as [Deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) with read access (and write access for bot exporting if you need it)
+4. Do import for this git repo
 
-## Important limitations
-- Broadcast reaches private chats the bot knows (users who have started the bot); it cannot message users who never opened the bot or who blocked it.
-- Group notifications require the bot to be a member of the destination group with permission to send messages. For private groups, use the numeric chat ID; a private invite link alone is not a chat ID.
-- Support messages are private between each user and the owner.
-- The order event hook needs to be called by the actual order/payment success paths. Until those order flows are implemented, the hook is available but cannot detect orders on its own.
-- Verify behavior in the Bots.Business runtime before live use. No end-to-end runtime test has been run.
+Now you can talk with yours new Telegram Bot
+
+See [more](https://help.bots.business/getting-started)
+
+## Commands - in commands folder
+File name - it is command name (Bot it can be rewritten in command description)
+
+Command can have: `name`, `help`, `aliases` (second names), `answer`, `keyboard`, `scnarios` (for simple logic) and other options.
+
+### Command description
+It is file header:
+
+    /*CMD
+      command: /test
+      help: this is help for ccommand
+      need_reply: [ true or false here ]
+      auto_retry_time: [ time in sec ]
+      answer: it is example answer for /test command
+      keyboard: button1, button2
+      aliases: /test2, /test3
+    CMD*/
+
+See [more](https://help.bots.business/commands)
+
+### Command body
+It is command code in JavaScript.
+Use Bot Java Script for logic in command.
+
+For example:
+> Bot.sendMessage(2+2);
+
+See [more](https://help.bots.business/scenarios-and-bjs)
+
+
+## Libraries - in libs folder
+You can store common code in the libs folder. File name - it is library name.
+
+For example code in myLib.js:
+
+    function hello(){ Bot.sendMessage("Hello from lib!") }
+    function goodbye(name){ Bot.sendMessage("Goodbye, " + name) }
+
+    publish({
+      sayHello: hello,
+      sayGoodbyeTo: goodbye
+    })
+
+then you can run in any bot's command:
+
+    Libs.myLib.hello()
+    Libs.myLib.sayGoodbyeTo("Alice")
+
+See [more](https://help.bots.business/git/library)
+
+## Other bots example
+See other bots examples in the [github](https://github.com/bots-business?utf8=✓&tab=repositories&q=&type=public&language=javascript) or in the [Bot Store](https://bots.business/)
+
+
+## Other help
+[Help.bots.business](https://help.bots.business)
+
+## API
+See [API](https://api.bots.business/docs#/docs/summary)
+
+
+![](https://bots.business/images/web-logo.png)

@@ -1,3 +1,15 @@
+/*CMD
+  command: removeuser
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /removeuser — NEED_REPLY: true. User replies with Telegram numeric ID.
 if (String(user.telegramid) !== "8312390543") { Bot.sendMessage("⛔ Owner only."); return; }
 if (!message) { Bot.sendMessage("যার অনুমতি বাতিল করবে তার Telegram ID পাঠাও।"); return; }

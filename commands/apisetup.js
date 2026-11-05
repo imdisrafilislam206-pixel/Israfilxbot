@@ -1,3 +1,15 @@
+/*CMD
+  command: apisetup
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /apisetup — NEED_REPLY: true. Owner enters "api_key|master_key" in private chat.
 if (String(user.telegramid) !== "8312390543") { Bot.sendMessage("⛔ Owner only."); return; }
 var parts=String(message||"").trim().split("|");

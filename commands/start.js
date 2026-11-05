@@ -1,3 +1,15 @@
+/*CMD
+  command: start
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /start — set as the command name "start"
 var OWNER = "8312390543";
 var uid = String(user.telegramid);

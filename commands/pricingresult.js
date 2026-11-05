@@ -1,3 +1,15 @@
+/*CMD
+  command: pricingresult
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /pricingresult
 var d;try{d=typeof content==="string"?JSON.parse(content):content;}catch(e){Bot.sendMessage("Pricing response invalid.");return;}
 if(!d||d.error){Bot.sendMessage("Pricing পাওয়া যায়নি।");return;}

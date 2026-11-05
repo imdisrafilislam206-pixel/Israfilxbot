@@ -1,3 +1,15 @@
+/*CMD
+  command: transactionsresult
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /transactionsresult — HTTP callback
 var a;try{a=typeof content==="string"?JSON.parse(content):content;}catch(e){Bot.sendMessage("Transaction response invalid.");return;}
 if(!Array.isArray(a)){Bot.sendMessage("FFGlory: "+((a&&a.error)||"Transactions পাওয়া যায়নি"));return;}

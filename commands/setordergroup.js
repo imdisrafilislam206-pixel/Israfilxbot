@@ -1,3 +1,15 @@
+/*CMD
+  command: setordergroup
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /setordergroup — set NEED_REPLY: true. Owner enters Telegram group chat ID (recommended).
 var OWNER = "8312390543";
 if (String(user.telegramid) !== OWNER) { Bot.sendMessage("⛔ Owner only."); return; }

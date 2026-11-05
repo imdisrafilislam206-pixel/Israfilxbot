@@ -1,3 +1,15 @@
+/*CMD
+  command: orderlog
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /orderlog — internal event hook. Call after an order/deposit is created or marked completed.
 // Example from the relevant success/admin-complete command:
 // Bot.runCommand("/orderlog", {event:"ORDER_COMPLETED", order_id:"...", user_id:"...", product:"...", amount:"..."});

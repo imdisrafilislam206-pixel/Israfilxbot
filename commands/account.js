@@ -1,3 +1,15 @@
+/*CMD
+  command: account
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /account — authenticated FFGlory account balance
 var uid=String(user.telegramid), allowed=Bot.getProperty("ffg_allowed_users",["8312390543"]);
 if(!Array.isArray(allowed)||(uid!=="8312390543"&&allowed.indexOf(uid)<0)){Bot.sendMessage("⛔ Access denied.");return;}

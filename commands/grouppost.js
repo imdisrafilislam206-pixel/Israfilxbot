@@ -1,3 +1,15 @@
+/*CMD
+  command: grouppost
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /grouppost — set NEED_REPLY: true. Owner-only broadcast to users who have opened the bot.
 var OWNER = "8312390543";
 if (String(user.telegramid) !== OWNER) { Bot.sendMessage("⛔ Owner only."); return; }

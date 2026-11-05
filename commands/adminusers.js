@@ -1,3 +1,15 @@
+/*CMD
+  command: adminusers
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /adminusers — owner only
 if (String(user.telegramid) !== "8312390543") { Bot.sendMessage("⛔ Owner only."); return; }
 var users = Bot.getProperty("ffg_all_users", []);

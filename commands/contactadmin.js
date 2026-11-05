@@ -1,3 +1,15 @@
+/*CMD
+  command: contactadmin
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+  group: 
+CMD*/
+
 // /contactadmin — set NEED_REPLY: true. User message is forwarded privately to owner.
 var OWNER = "8312390543";
 var uid = String(user.telegramid);
