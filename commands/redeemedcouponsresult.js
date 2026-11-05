@@ -1,0 +1,5 @@
+// /redeemedcouponsresult
+var a;try{a=typeof content==="string"?JSON.parse(content):content;}catch(e){Bot.sendMessage("Coupon response invalid.");return;}
+if(!Array.isArray(a)){Bot.sendMessage("FFGlory: "+((a&&a.error)||"Redeemed coupons পাওয়া যায়নি"));return;}
+var s="📥 *REDEEMED COUPONS*\n\n";for(var i=0;i<a.length&&i<60;i++){var c=a[i];s+=(i+1)+". "+c.code+"\nFrom: "+(c.created_by||"—")+"\nBasic: "+c.basic_credits+" | Premium: "+c.premium_credits+"\n\n";}
+Bot.sendInlineKeyboard([[{title:"⬅️ Coupon Menu",command:"/coupons"}]],s);
