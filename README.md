@@ -14,7 +14,8 @@ Telegram ID: 8312390543
 ## New communication and notification features
 - `grouppost.js`: owner-only broadcast to private chats known to the bot. Set the command's **Wait for answer / need_reply** option and its answer prompt.
 - `contactadmin.js`: user-to-owner private support. Set **need_reply** and an answer prompt. Each conversation is stored under a per-user property.
-- `adminreply.js`: owner reply flow. Set **need_reply** and an answer prompt; the owner taps the Reply button on a support message, then sends the reply.
+- `adminreply.js`: owner reply flow. Set **need_reply** and an answer prompt; the owner taps the Reply button on a support message or Support Inbox, then sends the reply.
+- `supportinbox.js`: owner-only list of recent support threads (up to 20 at a time).
 - `setordergroup.js`: owner sets the destination group as a numeric chat ID (recommended) or public @username. Set **need_reply** and an answer prompt.
 - `orderlog.js`: internal event hook. Call it after an order is created, completed, or a deposit is received:
   `Bot.runCommand("/orderlog", {event:"ORDER_CREATED", order_id:"123", user_id:"456", product:"Product name", amount:"100"});`
@@ -29,7 +30,7 @@ Telegram ID: 8312390543
 
 ## Important limitations
 - Broadcast reaches private chats the bot knows (users who have started the bot); it cannot message users who never opened the bot or who blocked it.
-- Group notifications require the bot to be a member of the destination group with permission to send messages.
+- Group notifications require the bot to be a member of the destination group with permission to send messages. For private groups, use the numeric chat ID; a private invite link alone is not a chat ID.
 - Support messages are private between each user and the owner.
 - The order event hook needs to be called by the actual order/payment success paths. Until those order flows are implemented, the hook is available but cannot detect orders on its own.
 - Verify behavior in the Bots.Business runtime before live use. No end-to-end runtime test has been run.
