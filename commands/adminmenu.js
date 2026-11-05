@@ -5,7 +5,7 @@
 CMD*/
 if(String(user.telegramid)!=="8312390543"){Bot.sendInlineKeyboard([{title:"⬅️ Owner Control",command:"/admin"}],"⛔ Access denied.");return;}
 var menu=Bot.getProperty("home_menu_buttons");
-if(!Array.isArray(menu)||!menu.length)menu=[
+if(!Array.isArray(menu))menu=[
  {title:"🛡️ Guild Glory Credit",command:"/guild",enabled:true},
  {title:"💎 Add Funds / Deposit",command:"/deposit",enabled:true},
  {title:"👤 My Profile",command:"/profile",enabled:true},
