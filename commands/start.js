@@ -37,21 +37,8 @@ profile.username = user.username || "";
 profile.last_seen = new Date().toISOString();
 Bot.setProperty("ffg_user_" + uid, profile, "json");
 
-// Send a plain reply first so the user still gets a response
-// even if the inline keyboard has a problem.
-Bot.sendMessage("🌟 FFGlory Reseller Panel\n\nস্বাগতম, " + (user.first_name || "User") + "! নিচের বাটন থেকে সেবা নির্বাচন করুন।");
-
-var buttons = [
-  {title:"💳 My Account / Balance", command:"/account"},
-  {title:"🚀 Launch Glory Group", command:"/launch"},
-  {title:"📂 My Groups", command:"/groups"},
-  {title:"🎟️ Coupons", command:"/coupons"},
-  {title:"📜 Transactions", command:"/transactions"},
-  {title:"📈 History & Activity", command:"/history"},
-  {title:"🔔 Notifications", command:"/notifications"},
-  {title:"💬 Contact Admin", command:"/contactadmin"}
-];
-if (uid === OWNER) {
-  buttons.push({title:"👑 Owner Admin Panel", command:"/admin"});
-}
-Bot.sendInlineKeyboard(buttons, "মেনু থেকে একটি অপশন নির্বাচন করুন।");
+// Telegram Reply Keyboard: buttons appear above the message input.
+// Reply-keyboard buttons send these slash commands as normal messages.
+var menu = "/account, /groups,\n/pricing, /coupons,\n/transactions, /history,\n/notifications, /contactadmin";
+if (uid === OWNER) menu += ", /admin";
+Bot.sendKeyboard(menu, "🌟 Guild Glory\n\nস্বাগতম, " + (user.first_name || "User") + "! নিচের Reply Keyboard থেকে একটি অপশন বেছে নিন।\n/start = Home");
