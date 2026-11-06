@@ -6,7 +6,7 @@
   folder:
   answer:
   keyboard:
-  aliases:
+  aliases: 🔄 রিফ্রেশ মেনু, 🏠 মূল মেনু
   group:
 CMD*/
 var OWNER="8312390543",uid=String(user.telegramid);
@@ -22,7 +22,7 @@ if(!Array.isArray(users))users=[];
 if(users.indexOf(uid)<0){users.push(uid);Bot.setProperty("ffg_all_users",users,"json");}
 Bot.setProperty("ffg_user_"+uid,{name:String(user.first_name||"Telegram User"),username:String(user.username||""),id:uid,last_seen:new Date().toISOString()},"json");
 if(uid===OWNER){
- Bot.sendKeyboard("/admin, /adminusers\n/permissions, /grouppost\n/supportinbox, /setordergroup\n/apisetup, /account\n/pricing, /start","🌟 Guild Glory — Owner Panel\nআপনার Owner ID যাচাই হয়েছে। সব Owner permissions চালু আছে।");
+ Bot.sendKeyboard("👑 অ্যাডমিন প্যানেল, 👥 ইউজার ম্যানেজমেন্ট\n🔐 পারমিশন ম্যানেজমেন্ট, 📢 গ্রুপ পোস্ট\n💬 সাপোর্ট ইনবক্স, ⚙️ API সেটিংস\n💰 ব্যালেন্স ও লেনদেন, 🛍️ প্রোডাক্ট ও প্রাইস\n🔄 রিফ্রেশ মেনু, 🏠 মূল মেনু","🌟 GUILD GLORY — OWNER CONTROL CENTER\nআপনার Owner ID যাচাই হয়েছে। সব Owner permissions সক্রিয়।");
 }else{
- Bot.sendKeyboard("/pricing, /contactadmin\n/requestpermission, /start","🌟 Welcome to Guild Glory!\nপ্রয়োজনীয় অপশন নিচের Reply Keyboard থেকে বেছে নিন।\nAdmin permission প্রয়োজন হলে Request Permission চাপুন।");
+ Bot.sendKeyboard("🛍️ প্রোডাক্ট ও প্রাইস, 💬 সাপোর্টে যোগাযোগ\n🔐 পারমিশন অনুরোধ, 🏠 মূল মেনু","🌟 WELCOME TO GUILD GLORY\nনিচের মেনু থেকে আপনার প্রয়োজনীয় সেবা বেছে নিন।");
 }
