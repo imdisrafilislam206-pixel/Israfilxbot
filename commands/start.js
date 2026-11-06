@@ -8,8 +8,8 @@ var firstName = user.first_name || "নাম পাওয়া যায়নি";
 var lastName = user.last_name || "";
 var fullName = (firstName + " " + lastName).trim();
 var username = user.username ? "@" + user.username : "সেট করা নেই";
-var shopName = AdminPanel.getFieldValue({ panel_name: "shop_settings", field_name: "shop_name" }) || "ISRAFILXSHOP";
-var welcomeLine = AdminPanel.getFieldValue({ panel_name: "shop_settings", field_name: "welcome_line" }) || "আমাদের প্রিমিয়াম ডিজিটাল শপে স্বাগতম।";
+var shopName = Bot.getProperty("shop_name") || "ISRAFILXSHOP";
+var welcomeLine = Bot.getProperty("welcome_line") || "আমাদের প্রিমিয়াম ডিজিটাল শপে স্বাগতম।";
 
 var welcome =
   "✦ *" + shopName + "* ✦\n" +
