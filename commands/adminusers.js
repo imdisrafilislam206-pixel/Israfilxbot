@@ -1,5 +1,5 @@
 /*CMD
-  command: adminusers
+  command: /adminusers
   help: 
   need_reply: 
   auto_retry_time: 
