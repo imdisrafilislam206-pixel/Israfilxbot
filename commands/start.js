@@ -2,38 +2,31 @@
   command: /start
   help: Start Guild Glory
   need_reply: false
-  auto_retry_time:
-  folder:
-  answer:
-  keyboard:
   aliases: 🔄 রিফ্রেশ মেনু, 🏠 মূল মেনু
-  group:
 CMD*/
 var OWNER="8312390543",uid=String(user.telegramid);
 if(uid===OWNER){
  var ownerKeys=["admin","products","orders","users","balance","group_post","support","api","reports"];
- for(var oi=0;oi<ownerKeys.length;oi++){Bot.setProperty("ffg_perm_"+OWNER+"_"+ownerKeys[oi],true,"boolean");}
- var ownerAllowed=Bot.getProperty("ffg_allowed_users",[]);
- if(!Array.isArray(ownerAllowed))ownerAllowed=[];
- if(ownerAllowed.indexOf(OWNER)<0){ownerAllowed.push(OWNER);Bot.setProperty("ffg_allowed_users",ownerAllowed,"json");}
+ for(var oi=0;oi<ownerKeys.length;oi++)Bot.setProperty("ffg_perm_"+OWNER+"_"+ownerKeys[oi],true,"boolean");
+ var allowed=Bot.getProperty("ffg_allowed_users",[]);
+ if(!Array.isArray(allowed))allowed=[];
+ if(allowed.indexOf(OWNER)<0){allowed.push(OWNER);Bot.setProperty("ffg_allowed_users",allowed,"json");}
 }
 var users=Bot.getProperty("ffg_all_users",[]);
 if(!Array.isArray(users))users=[];
 var isNewUser=users.indexOf(uid)<0;
 if(isNewUser){users.push(uid);Bot.setProperty("ffg_all_users",users,"json");}
-// Referral deep-link attribution: first valid referrer only; never self-referral.
 var startArg=String(params||"").trim();
-if(isNewUser && startArg.indexOf("ref_")===0){
+if(isNewUser&&startArg.indexOf("ref_")===0){
  var referrer=startArg.substring(4);
- if(/^[0-9]{5,15}$/.test(referrer) && referrer!==uid){
-  var existing=Bot.getProperty("ffg_user_"+uid,{});
-  if(!existing || !existing.referred_by){
+ if(/^[0-9]{5,15}$/.test(referrer)&&referrer!==uid){
+  var profile0=Bot.getProperty("ffg_user_"+uid,{});
+  if(!profile0||typeof profile0!=="object")profile0={};
+  if(!profile0.referred_by){
    var known=Bot.getProperty("ffg_all_users",[]);
-   if(Array.isArray(known) && known.indexOf(referrer)>=0){
-    if(!existing || typeof existing!=="object") existing={};
-    existing.referred_by=referrer;
-    existing.referral_qualified=false;
-    Bot.setProperty("ffg_user_"+uid,existing,"json");
+   if(Array.isArray(known)&&known.indexOf(referrer)>=0){
+    profile0.referred_by=referrer;profile0.referral_qualified=false;
+    Bot.setProperty("ffg_user_"+uid,profile0,"json");
     var list=Bot.getProperty("ffg_referrals_"+referrer,[]);
     if(!Array.isArray(list))list=[];
     if(list.indexOf(uid)<0){list.push(uid);Bot.setProperty("ffg_referrals_"+referrer,list,"json");}
@@ -45,24 +38,10 @@ var profile=Bot.getProperty("ffg_user_"+uid,{});
 if(!profile||typeof profile!=="object")profile={};
 profile.name=String(user.first_name||profile.name||"Telegram User");
 profile.username=String(user.username||profile.username||"");
-profile.id=uid;
-profile.last_seen=new Date().toISOString();
+profile.id=uid;profile.last_seen=new Date().toISOString();
 Bot.setProperty("ffg_user_"+uid,profile,"json");
 if(uid===OWNER){
- Bot.sendInlineKeyboard([
-  [{title:"👑 অ্যাডমিন প্যানেল",command:"/admin"}],
-  [{title:"👥 ইউজার ম্যানেজমেন্ট",command:"/adminusers"},{title:"🔐 পারমিশন",command:"/permissions"}],
-  [{title:"📢 গ্রুপ পোস্ট",command:"/grouppost"},{title:"💬 সাপোর্ট ইনবক্স",command:"/supportinbox"}],
-  [{title:"🛠️ পণ্য ম্যানেজ",command:"/adminproducts"},{title:"🛍️ API প্রাইস",command:"/pricing"}],
-  [{title:"💰 ব্যালেন্স",command:"/account"}],
-  [{title:"📊 রিপোর্ট",command:"/groups"},{title:"⚙️ API সেটিংস",command:"/apisetup"}]
- ],"🌟 GUILD GLORY — OWNER CONTROL CENTER\nআপনার Owner ID যাচাই হয়েছে। নিচের বাটন থেকে কাজ বেছে নিন।");
+ Bot.sendKeyboard("👑 অ্যাডমিন প্যানেল, 👥 ইউজার ম্যানেজমেন্ট,\n🔐 পারমিশন, 🛠️ পণ্য ম্যানেজ,\n📢 গ্রুপ পোস্ট, 💬 সাপোর্ট ইনবক্স,\n🎁 রেফারেল সেটিংস, 🎟️ কুপন,\n💰 ব্যালেন্স, 📊 রিপোর্ট,\n🏠 মূল মেনু","🌟 GUILD GLORY — OWNER CONTROL CENTER\nOwner ID যাচাই হয়েছে। চ্যাটের লেখার ঘরের ওপরে থাকা বাটন থেকে কাজ বেছে নিন।");
 }else{
- Bot.sendInlineKeyboard([
-  [{title:"🛍️ Guild Glory Store",command:"/store"}],
-  [{title:"🎁 রেফার করুন",command:"/referral"}],
-  [{title:"🛍️ API প্রাইস",command:"/pricing"}],
-  [{title:"💬 সাপোর্টে যোগাযোগ",command:"/contactadmin"}],
-  [{title:"🔐 পারমিশন অনুরোধ",command:"/requestpermission"}]
- ],"🌟 WELCOME TO GUILD GLORY\nস্বাগতম! নিচের বাটন থেকে প্রয়োজনীয় সেবা বেছে নিন।");
+ Bot.sendKeyboard("🛍️ Guild Glory Store, 🎁 রেফার করুন,\n🛍️ API প্রাইস, 💬 সাপোর্টে যোগাযোগ,\n🔐 পারমিশন অনুরোধ, 🏠 মূল মেনু","🌟 WELCOME TO GUILD GLORY\nস্বাগতম! নিচের কিবোর্ড থেকে প্রয়োজনীয় সেবা বেছে নিন।");
 }
