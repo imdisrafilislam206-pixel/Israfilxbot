@@ -19,10 +19,11 @@ if(uid===OWNER){
 }
 var users=Bot.getProperty("ffg_all_users",[]);
 if(!Array.isArray(users))users=[];
-if(users.indexOf(uid)<0){users.push(uid);Bot.setProperty("ffg_all_users",users,"json");}
+var isNewUser=users.indexOf(uid)<0;
+if(isNewUser){users.push(uid);Bot.setProperty("ffg_all_users",users,"json");}
 // Referral deep-link attribution: first valid referrer only; never self-referral.
 var startArg=String(params||"").trim();
-if(startArg.indexOf("ref_")===0){
+if(isNewUser && startArg.indexOf("ref_")===0){
  var referrer=startArg.substring(4);
  if(/^[0-9]{5,15}$/.test(referrer) && referrer!==uid){
   var existing=Bot.getProperty("ffg_user_"+uid,{});
