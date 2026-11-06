@@ -14,6 +14,9 @@ CMD*/
 var OWNER = "8312390543";
 var uid = String(user.telegramid);
 
+// Diagnostic safety reply: confirm that /start is executing before menu logic.
+Bot.sendMessage("🌟 Guild Glory Bot চালু আছে! /start কমান্ড কাজ করছে।");
+
 var all = Bot.getProperty("ffg_all_users", []);
 if (!Array.isArray(all)) all = [];
 if (all.indexOf(uid) < 0) {
@@ -41,4 +44,4 @@ Bot.setProperty("ffg_user_" + uid, profile, "json");
 // Reply-keyboard buttons send these slash commands as normal messages.
 var menu = "/account, /groups,\n/pricing, /coupons,\n/transactions, /history,\n/notifications, /contactadmin";
 if (uid === OWNER) menu += ", /admin";
-Bot.sendKeyboard(menu, "🌟 Guild Glory\n\nস্বাগতম, " + (user.first_name || "User") + "! নিচের Reply Keyboard থেকে একটি অপশন বেছে নিন।\n/start = Home");
+Bot.sendKeyboard(menu, "নিচের Reply Keyboard থেকে একটি অপশন বেছে নিন।");
