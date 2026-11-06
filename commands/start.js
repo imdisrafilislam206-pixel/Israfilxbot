@@ -20,6 +20,26 @@ if(uid===OWNER){
 var users=Bot.getProperty("ffg_all_users",[]);
 if(!Array.isArray(users))users=[];
 if(users.indexOf(uid)<0){users.push(uid);Bot.setProperty("ffg_all_users",users,"json");}
+// Referral deep-link attribution: first valid referrer only; never self-referral.
+var startArg=String(params||"").trim();
+if(startArg.indexOf("ref_")===0){
+ var referrer=startArg.substring(4);
+ if(/^\\d{5,15}$/.test(referrer) && referrer!==uid){
+  var existing=Bot.getProperty("ffg_user_"+uid,{});
+  if(!existing || !existing.referred_by){
+   var known=Bot.getProperty("ffg_all_users",[]);
+   if(Array.isArray(known) && known.indexOf(referrer)>=0){
+    if(!existing || typeof existing!=="object") existing={};
+    existing.referred_by=referrer;
+    existing.referral_qualified=false;
+    Bot.setProperty("ffg_user_"+uid,existing,"json");
+    var list=Bot.getProperty("ffg_referrals_"+referrer,[]);
+    if(!Array.isArray(list))list=[];
+    if(list.indexOf(uid)<0){list.push(uid);Bot.setProperty("ffg_referrals_"+referrer,list,"json");}
+   }
+  }
+ }
+}
 var profile=Bot.getProperty("ffg_user_"+uid,{});
 if(!profile||typeof profile!=="object")profile={};
 profile.name=String(user.first_name||profile.name||"Telegram User");
@@ -38,7 +58,7 @@ if(uid===OWNER){
  ],"🌟 GUILD GLORY — OWNER CONTROL CENTER\nআপনার Owner ID যাচাই হয়েছে। নিচের বাটন থেকে কাজ বেছে নিন।");
 }else{
  Bot.sendInlineKeyboard([
-  [{title:"🛍️ Guild Glory Store",command:"/store"}],
+  [{title:"🛍️ Guild Glory Store",command:"/store"}],\n  [{title:"🎁 রেফার করুন",command:"/referral"}],
   [{title:"🛍️ API প্রাইস",command:"/pricing"}],
   [{title:"💬 সাপোর্টে যোগাযোগ",command:"/contactadmin"}],
   [{title:"🔐 পারমিশন অনুরোধ",command:"/requestpermission"}]
