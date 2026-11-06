@@ -58,7 +58,8 @@ if(uid===OWNER){
  ],"🌟 GUILD GLORY — OWNER CONTROL CENTER\nআপনার Owner ID যাচাই হয়েছে। নিচের বাটন থেকে কাজ বেছে নিন।");
 }else{
  Bot.sendInlineKeyboard([
-  [{title:"🛍️ Guild Glory Store",command:"/store"}],\n  [{title:"🎁 রেফার করুন",command:"/referral"}],
+  [{title:"🛍️ Guild Glory Store",command:"/store"}],
+  [{title:"🎁 রেফার করুন",command:"/referral"}],
   [{title:"🛍️ API প্রাইস",command:"/pricing"}],
   [{title:"💬 সাপোর্টে যোগাযোগ",command:"/contactadmin"}],
   [{title:"🔐 পারমিশন অনুরোধ",command:"/requestpermission"}]
