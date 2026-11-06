@@ -6,7 +6,7 @@
   folder:
   answer:
   keyboard:
-  aliases:
+  aliases: 🔐 পারমিশন ম্যানেজমেন্ট
   group:
 CMD*/
 var OWNER="8312390543";
