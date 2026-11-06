@@ -6,7 +6,7 @@
   folder: 
   answer: 
   keyboard: 
-  aliases: 
+  aliases: 💬 সাপোর্ট ইনবক্স
   group: 
 CMD*/
 
