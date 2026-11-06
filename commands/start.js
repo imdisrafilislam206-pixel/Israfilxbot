@@ -32,12 +32,14 @@ if(uid===OWNER){
   [{title:"👑 অ্যাডমিন প্যানেল",command:"/admin"}],
   [{title:"👥 ইউজার ম্যানেজমেন্ট",command:"/adminusers"},{title:"🔐 পারমিশন",command:"/permissions"}],
   [{title:"📢 গ্রুপ পোস্ট",command:"/grouppost"},{title:"💬 সাপোর্ট ইনবক্স",command:"/supportinbox"}],
-  [{title:"🛍️ প্রোডাক্ট ও প্রাইস",command:"/pricing"},{title:"💰 ব্যালেন্স",command:"/account"}],
+  [{title:"🛠️ পণ্য ম্যানেজ",command:"/adminproducts"},{title:"🛍️ API প্রাইস",command:"/pricing"}],
+  [{title:"💰 ব্যালেন্স",command:"/account"}],
   [{title:"📊 রিপোর্ট",command:"/groups"},{title:"⚙️ API সেটিংস",command:"/apisetup"}]
  ],"🌟 GUILD GLORY — OWNER CONTROL CENTER\nআপনার Owner ID যাচাই হয়েছে। নিচের বাটন থেকে কাজ বেছে নিন।");
 }else{
  Bot.sendInlineKeyboard([
-  [{title:"🛍️ প্রোডাক্ট ও প্রাইস",command:"/pricing"}],
+  [{title:"🛍️ Guild Glory Store",command:"/store"}],
+  [{title:"🛍️ API প্রাইস",command:"/pricing"}],
   [{title:"💬 সাপোর্টে যোগাযোগ",command:"/contactadmin"}],
   [{title:"🔐 পারমিশন অনুরোধ",command:"/requestpermission"}]
  ],"🌟 WELCOME TO GUILD GLORY\nস্বাগতম! নিচের বাটন থেকে প্রয়োজনীয় সেবা বেছে নিন।");
