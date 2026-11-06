@@ -10,6 +10,9 @@
   group: 
 CMD*/
 
+var uid=String(user.telegramid);
+if(uid!=="8312390543" && Bot.getProperty("ffg_perm_"+uid+"_products",false)!==true){Bot.sendMessage("⛔ Products permission নেই। /requestpermission");return;}
+
 // /coupons — coupon management menu
 var uid=String(user.telegramid),a=Bot.getProperty("ffg_allowed_users",["8312390543"]);
 if(!Array.isArray(a)||(uid!=="8312390543"&&a.indexOf(uid)<0)){Bot.sendMessage("⛔ Access denied.");return;}
