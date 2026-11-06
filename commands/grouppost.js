@@ -6,7 +6,7 @@
   folder: 
   answer: 
   keyboard: 
-  aliases: 
+  aliases: 📢 গ্রুপ পোস্ট
   group: 
 CMD*/
 
