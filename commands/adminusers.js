@@ -6,7 +6,7 @@
   folder: 
   answer: 
   keyboard: 
-  aliases: 
+  aliases: 👥 ইউজার ম্যানেজমেন্ট
   group: 
 CMD*/
 
