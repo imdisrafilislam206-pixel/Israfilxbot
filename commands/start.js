@@ -13,8 +13,7 @@ var welcome =
   "🌟 *Guild Glory-তে স্বাগতম!*\n\n" +
   "আপনাকে আমাদের বটে স্বাগতম। আপনার Telegram তথ্য নিচে দেওয়া হলো।\n\n" +
   "👤 *নাম:* " + fullName + "\n" +
-  "🆔 *Telegram User ID:* " + user.telegramid + "\n" +
-  "💬 *Chat ID:* " + chat.chatid + "\n" +
+  "🆔 *User ID:* " + user.telegramid + "\n" +
   "📛 *Username:* " + username + "\n\n" +
   "✅ আপনার অ্যাকাউন্ট বটের সঙ্গে সংযুক্ত হয়েছে।";
 
