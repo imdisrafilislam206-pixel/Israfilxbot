@@ -1,6 +1,6 @@
 /*CMD
   command: /start
-  help: ISRAFILXSHOP welcome card-style profile
+  help: ISRAFILXSHOP premium dashboard
   need_reply: false
 CMD*/
 
@@ -10,16 +10,24 @@ var fullName = (firstName + " " + lastName).trim();
 var username = user.username ? "@" + user.username : "সেট করা নেই";
 
 var welcome =
-  "✨ *ISRAFILXSHOP* ✨\n" +
-  "🌟 *প্রিমিয়াম স্বাগতম* 🌟\n" +
+  "✦ *ISRAFILXSHOP* ✦\n" +
+  "👑 *PREMIUM DASHBOARD*\n" +
   "━━━━━━━━━━━━━━━━━━\n\n" +
-  "👋 *আসসালামু আলাইকুম, " + fullName + "!*\n\n" +
-  "আমাদের বটে আপনাকে স্বাগতম।\n\n" +
-  "👤 নাম: " + fullName + "\n\n" +
-  "🆔 User ID: " + user.telegramid + "\n\n" +
-  "📛 Username: " + username + "\n\n" +
+  "🌙 আসসালামু আলাইকুম, *" + fullName + "*! 👋\n" +
+  "💎 আমাদের প্রিমিয়াম ডিজিটাল শপে স্বাগতম।\n\n" +
+  "👤 *আপনার প্রোফাইল*\n" +
+  "• নাম: " + fullName + "\n" +
+  "• User ID: " + user.telegramid + "\n" +
+  "• Username: " + username + "\n\n" +
   "━━━━━━━━━━━━━━━━━━\n" +
-  "💎 *আপনার বিশ্বস্ত ডিজিটাল শপ*\n\n" +
-  "ISRAFILXSHOP-এর সঙ্গে থাকার জন্য ধন্যবাদ! ❤️";
+  "💰 *অ্যাকাউন্ট ব্যালেন্স*\n" +
+  "৳ 0.00\n\n" +
+  "🛍️ *আমাদের সার্ভিস বেছে নিন*\n" +
+  "💠 ISRAFILXSHOP — PREMIUM SERVICE";
 
-Bot.sendMessage(welcome);
+var keyboard =
+  "💎 Diamond Top-up, 🎮 Free Fire Items\n" +
+  "📦 My Orders, 💰 Add Balance\n" +
+  "🎁 Referral, 🎧 Support";
+
+Bot.sendKeyboard(keyboard, welcome);
