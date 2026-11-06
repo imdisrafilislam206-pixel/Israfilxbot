@@ -6,7 +6,7 @@
   folder:
   answer:
   keyboard:
-  aliases:
+  aliases: 🔐 পারমিশন অনুরোধ
   group:
 CMD*/
 
