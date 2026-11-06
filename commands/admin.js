@@ -1,17 +1,21 @@
 /*CMD
   command: 👑 Admin Panel
-  help: Owner-only administration menu
+  help: Owner-only Telegram bot administration
   need_reply: false
 CMD*/
 
 if (!user || String(user.telegramid) !== "8312390543") {
-  Bot.sendMessage("⛔ এই প্যানেলটি শুধু অ্যাডমিনের জন্য।");
+  Bot.sendMessage("⛔ এই প্যানেলটি শুধু মালিকের জন্য।");
   return;
 }
 
-Bot.sendKeyboard("🛠️ Setup Admin Settings, 🔙 Back, 🏠 Home",
-  "👑 *ISRAFILXSHOP Admin Panel*\n\n" +
-  "🔐 অ্যাডমিন অ্যাক্সেস যাচাই হয়েছে।\n" +
-  "🛠️ Setup Admin Settings চাপলে Bots.Business অ্যাপের Admin Panel-এ সম্পাদনাযোগ্য Shop Settings ও Product Catalog তৈরি হবে।\n\n" +
-  "⚠️ পেমেন্ট, ব্যালেন্স, অর্ডার, স্টক কোড ও ব্রডকাস্টের পূর্ণ ব্যবস্থা এখনো সংযুক্ত নয়।"
+Bot.sendKeyboard(
+  "🧩 Button Manager, 🛍️ Product Manager\n" +
+  "👥 User Manager, 📦 Order Manager\n" +
+  "💰 Balance & Payments, 🎧 Support Inbox\n" +
+  "📢 Broadcast, ⚙️ Shop Settings\n" +
+  "🔙 Back, 🏠 Home",
+  "👑 *ISRAFILXSHOP — OWNER CONTROL PANEL*\n\n" +
+  "🔐 মালিক হিসেবে প্রবেশ সফল।\n" +
+  "এখান থেকেই বটের মেনু, পণ্য, ইউজার, অর্ডার, ব্যালেন্স, সাপোর্ট ও ঘোষণা পরিচালিত হবে।"
 );
