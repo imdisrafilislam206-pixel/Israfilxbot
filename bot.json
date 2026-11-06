@@ -1,0 +1,6 @@
+{
+  "name": "Guild Glory",
+  "description": "Minimal Guild Glory Telegram bot starter for Bots.Business",
+  "platform": "Bots.Business",
+  "default_branch": "main"
+}
