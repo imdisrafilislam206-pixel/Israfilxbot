@@ -12,12 +12,16 @@ CMD*/
 
 // Owner/product manager edits a product using: ID | name | price | description
 if (String(user.telegramid) !== "8312390543" && Bot.getProperty("ffg_perm_" + String(user.telegramid) + "_products", false) !== true) { Bot.sendMessage("⛔ Products permission নেই।"); return; }
-var parts = String(message || "").split("|");
-if (parts.length < 4) {
-  Bot.sendInlineKeyboard([[{title:"⬅️ Product Management",command:"/adminproducts"}]], "পণ্য সম্পাদনার তথ্য পাঠান:\nID | নতুন নাম | নতুন দাম | নতুন বিবরণ");
-  return;
+var target=String(params||"").trim();
+if(target){
+ Bot.setProperty("ffg_product_edit_target",target,"string");
+ Bot.sendInlineKeyboard([[{title:"⬅️ Product Management",command:"/adminproducts"}]],"পণ্য ID "+target+" সম্পাদনা করতে নতুন তথ্য পাঠান:\nনতুন নাম | নতুন দাম | নতুন বিবরণ");
+ return;
 }
-var id=String(parts[0]).trim(), name=String(parts[1]).trim(), price=Number(String(parts[2]).trim()), description=parts.slice(3).join("|").trim();
+var id=String(Bot.getProperty("ffg_product_edit_target",""));
+var parts=String(message||"").split("|");
+if(parts.length<3){Bot.sendMessage("তথ্য পাঠান: নতুন নাম | নতুন দাম | নতুন বিবরণ");return;}
+var name=String(parts[0]).trim(), price=Number(String(parts[1]).trim()), description=parts.slice(2).join("|").trim();
 if(!id || !name || !isFinite(price) || price<0){Bot.sendMessage("তথ্য সঠিক নয়। আবার চেষ্টা করুন: ID | নাম | দাম | বিবরণ");return;}
 var products=Bot.getProperty("ffg_products",[]);
 if(!Array.isArray(products))products=[];
