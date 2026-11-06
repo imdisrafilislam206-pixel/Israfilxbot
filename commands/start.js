@@ -10,6 +10,13 @@
   group:
 CMD*/
 var OWNER="8312390543",uid=String(user.telegramid);
+if(uid===OWNER){
+ var ownerKeys=["admin","products","orders","users","balance","group_post","support","api","reports"];
+ for(var oi=0;oi<ownerKeys.length;oi++){Bot.setProperty("ffg_perm_"+OWNER+"_"+ownerKeys[oi],true,"boolean");}
+ var ownerAllowed=Bot.getProperty("ffg_allowed_users",[]);
+ if(!Array.isArray(ownerAllowed))ownerAllowed=[];
+ if(ownerAllowed.indexOf(OWNER)<0){ownerAllowed.push(OWNER);Bot.setProperty("ffg_allowed_users",ownerAllowed,"json");}
+}
 var users=Bot.getProperty("ffg_all_users",[]);
 if(!Array.isArray(users))users=[];
 if(users.indexOf(uid)<0){users.push(uid);Bot.setProperty("ffg_all_users",users,"json");}
