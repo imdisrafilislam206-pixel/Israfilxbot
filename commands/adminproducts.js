@@ -20,7 +20,7 @@ var buttons = [];
 for (var i = 0; i < products.length && i < 30; i++) {
   var p = products[i] || {};
   msg += (i+1) + ". " + String(p.name || "Unnamed") + " | ৳" + String(p.price || 0) + " | " + (p.active === false ? "বন্ধ" : "চালু") + "\n";
-  buttons.push([{title:"✏️ Edit: " + String(p.name || "Product").substring(0,24), command:"/productedit"}]);
+  buttons.push([{title:"✏️ Edit: " + String(p.name || "Product").substring(0,24), command:"/productedit " + String(p.id || i)}]);
 }
 buttons.unshift([{title:"➕ নতুন পণ্য যোগ করুন",command:"/productadd"}]);
 buttons.push([{title:"🛍️ স্টোর দেখুন",command:"/store"},{title:"⬅️ Admin",command:"/admin"}]);
