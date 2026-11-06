@@ -24,7 +24,7 @@ if(users.indexOf(uid)<0){users.push(uid);Bot.setProperty("ffg_all_users",users,"
 var startArg=String(params||"").trim();
 if(startArg.indexOf("ref_")===0){
  var referrer=startArg.substring(4);
- if(/^\\d{5,15}$/.test(referrer) && referrer!==uid){
+ if(/^[0-9]{5,15}$/.test(referrer) && referrer!==uid){
   var existing=Bot.getProperty("ffg_user_"+uid,{});
   if(!existing || !existing.referred_by){
    var known=Bot.getProperty("ffg_all_users",[]);
