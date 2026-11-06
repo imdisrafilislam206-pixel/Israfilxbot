@@ -30,4 +30,8 @@ var keyboard =
   "📦 My Orders, 💰 Add Balance\n" +
   "🎁 Referral, 🎧 Support";
 
+if (String(user.telegramid) === "8312390543") {
+  keyboard += "\n👑 Admin Panel";
+}
+
 Bot.sendKeyboard(keyboard, welcome);
