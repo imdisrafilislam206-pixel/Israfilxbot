@@ -13,8 +13,4 @@ var OWNER="8312390543";
 if(String(user.telegramid)!==OWNER){Bot.sendMessage("⛔ এই Admin Panel শুধু Owner-এর জন্য।");return;}
 var users=Bot.getProperty("ffg_all_users",[]);if(!Array.isArray(users))users=[];
 var group=Bot.getProperty("ffg_order_group","Not set");
-Bot.sendKeyboard("👥 ইউজার ম্যানেজমেন্ট, 🔐 পারমিশন ম্যানেজমেন্ট
-📢 গ্রুপ পোস্ট, 💬 সাপোর্ট ইনবক্স
-⚙️ API সেটিংস, 💰 ব্যালেন্স ও লেনদেন
-🛍️ প্রোডাক্ট ও প্রাইস, 📊 রিপোর্ট
-🏠 মূল মেনু\n🔄 রিফ্রেশ মেনু, 🏠 মূল মেনু","👑 GUILD GLORY — OWNER CONTROL CENTER\nনিচের বাটন থেকে একটি বিভাগ নির্বাচন করুন।");
+Bot.sendKeyboard("👥 ইউজার ম্যানেজমেন্ট, 🔐 পারমিশন ম্যানেজমেন্ট\n📢 গ্রুপ পোস্ট, 💬 সাপোর্ট ইনবক্স\n⚙️ API সেটিংস, 💰 ব্যালেন্স ও লেনদেন\n🛍️ প্রোডাক্ট ও প্রাইস, 📊 রিপোর্ট\n🔄 রিফ্রেশ মেনু, 🏠 মূল মেনু","👑 GUILD GLORY — OWNER CONTROL CENTER\nনিচের বাটন থেকে একটি বিভাগ নির্বাচন করুন।");
