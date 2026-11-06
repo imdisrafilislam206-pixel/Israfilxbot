@@ -1,7 +1,13 @@
 /*CMD
   command: 🎧 Support
-  help: Customer support section
+  help: Show editable customer support contacts
   need_reply: false
 CMD*/
 
-Bot.sendKeyboard("🔙 Back, 🏠 Home", "🎧 *Customer Support*\n\nসাপোর্ট যোগাযোগের তথ্য অ্যাডমিন প্যানেল থেকে সেট করার ব্যবস্থা পরবর্তী ধাপে যুক্ত হবে।");
+var wa = AdminPanel.getFieldValue({ panel_name: "shop_settings", field_name: "support_whatsapp" }) || "এখনো সেট করা হয়নি";
+var tg = AdminPanel.getFieldValue({ panel_name: "shop_settings", field_name: "support_telegram" }) || "এখনো সেট করা হয়নি";
+var msg = "🎧 *ISRAFILXSHOP Customer Support*\n━━━━━━━━━━━━━━━━━━\n\n";
+msg += "📱 WhatsApp: " + wa + "\n";
+msg += "✈️ Telegram: " + tg + "\n\n";
+msg += "যোগাযোগের তথ্য অ্যাডমিন প্যানেল থেকে পরিবর্তন করা যাবে।";
+Bot.sendKeyboard("🔙 Back, 🏠 Home", msg);
