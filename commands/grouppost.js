@@ -1,5 +1,5 @@
 /*CMD
-  command: grouppost
+  command: /grouppost
   help: 
   need_reply: true
   auto_retry_time: 
