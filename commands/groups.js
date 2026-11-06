@@ -6,7 +6,7 @@
   folder: 
   answer: 
   keyboard: 
-  aliases: 
+  aliases: 📊 রিপোর্ট
   group: 
 CMD*/
 
