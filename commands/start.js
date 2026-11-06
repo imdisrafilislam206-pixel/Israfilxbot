@@ -11,16 +11,16 @@ var username = user.username ? "@" + user.username : "সেট করা নে
 
 var welcome =
   "✦━━━━━━━━━━━━━━━━━━✦\n" +
-  "        *ISRAFILXSHOP*\n" +
-  "     ✨ প্রিমিয়াম স্বাগতম ✨\n" +
-  "✦━━━━━━━━━━━━━━━━━━✦\n\n" +
+  "      ✨ *ISRAFILXSHOP* ✨\n" +
+  "       ✨ *প্রিমিয়াম স্বাগতম* ✨\n" +
+  "━━━━━━━━━━━━━━━━━━\n\n" +
   "আসসালামু আলাইকুম, *" + fullName + "*! 👋\n\n" +
-  "আমাদের বটে আপনাকে স্বাগতম। আপনার প্রোফাইলের তথ্য:\n\n" +
-  "👤 *নাম:* " + fullName + "\n" +
-  "🆔 *User ID:* " + user.telegramid + "\n" +
+  "আমাদের বটে আপনাকে স্বাগতম।\n\n" +
+  "👤 *নাম:* " + fullName + "\n\n" +
+  "🆔 *User ID:* " + user.telegramid + "\n\n" +
   "📛 *Username:* " + username + "\n\n" +
   "━━━━━━━━━━━━━━━━━━\n" +
-  "💎 আপনার বিশ্বস্ত ডিজিটাল শপ\n" +
-  "❤️ ISRAFILXSHOP-এর সঙ্গে থাকার জন্য ধন্যবাদ!";
+  "💎 *আপনার বিশ্বস্ত ডিজিটাল শপ*\n\n" +
+  "ISRAFILXSHOP-এর সঙ্গে থাকার জন্য ধন্যবাদ! ❤️";
 
 Bot.sendMessage(welcome);
