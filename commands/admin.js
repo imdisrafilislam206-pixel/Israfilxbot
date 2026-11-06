@@ -1,16 +1,18 @@
 /*CMD
-  command: admin
-  help: Owner dashboard
-  need_reply: false
-  auto_retry_time:
-  folder:
-  answer:
-  keyboard:
-  aliases: 👑 অ্যাডমিন প্যানেল
-  group:
+command: admin
+help: Owner dashboard
+need_reply: false
+aliases: 👑 অ্যাডমিন প্যানেল
 CMD*/
-var OWNER="8312390543";
-if(String(user.telegramid)!==OWNER){Bot.sendMessage("⛔ এই Admin Panel শুধু Owner-এর জন্য।");return;}
-var users=Bot.getProperty("ffg_all_users",[]);if(!Array.isArray(users))users=[];
-var group=Bot.getProperty("ffg_order_group","Not set");
-Bot.sendKeyboard("👥 ইউজার ম্যানেজমেন্ট, 🔐 পারমিশন ম্যানেজমেন্ট\n📢 গ্রুপ পোস্ট, 💬 সাপোর্ট ইনবক্স\n⚙️ API সেটিংস, 💰 ব্যালেন্স ও লেনদেন\n🛍️ প্রোডাক্ট ও প্রাইস, 📊 রিপোর্ট\n🔄 রিফ্রেশ মেনু, 🏠 মূল মেনু","👑 GUILD GLORY — OWNER CONTROL CENTER\nনিচের বাটন থেকে একটি বিভাগ নির্বাচন করুন।");
+if(String(user.telegramid)!=="8312390543"){Bot.sendMessage("⛔ শুধু Owner ব্যবহার করতে পারবেন।");return;}
+var users=Bot.getProperty("ffg_all_users",[]);
+if(!Array.isArray(users))users=[];
+Bot.sendInlineKeyboard([
+[{title:"👥 ইউজার ম্যানেজমেন্ট",command:"/adminusers"}],
+[{title:"🔐 পারমিশন",command:"/permissions"}],
+[{title:"📢 গ্রুপ পোস্ট",command:"/grouppost"},{title:"💬 সাপোর্ট ইনবক্স",command:"/supportinbox"}],
+[{title:"⚙️ API সেটিংস",command:"/apisetup"}],
+[{title:"💰 ব্যালেন্স",command:"/account"},{title:"📊 রিপোর্ট",command:"/groups"}],
+[{title:"🛍️ প্রোডাক্ট ও প্রাইস",command:"/pricing"},{title:"🎟️ কুপন",command:"/coupons"}],
+[{title:"🏠 মূল মেনু",command:"/start"}]
+],"GUILD GLORY — OWNER CONTROL CENTER\nমোট নিবন্ধিত ইউজার: "+users.length+"\nবিভাগ নির্বাচন করুন।");
