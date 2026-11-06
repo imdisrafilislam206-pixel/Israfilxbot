@@ -6,7 +6,7 @@
   folder: 
   answer: 
   keyboard: 
-  aliases: 
+  aliases: 💰 ব্যালেন্স ও লেনদেন
   group: 
 CMD*/
 
