@@ -8,13 +8,15 @@ var firstName = user.first_name || "নাম পাওয়া যায়নি";
 var lastName = user.last_name || "";
 var fullName = (firstName + " " + lastName).trim();
 var username = user.username ? "@" + user.username : "সেট করা নেই";
+var shopName = AdminPanel.getFieldValue({ panel_name: "shop_settings", field_name: "shop_name" }) || "ISRAFILXSHOP";
+var welcomeLine = AdminPanel.getFieldValue({ panel_name: "shop_settings", field_name: "welcome_line" }) || "আমাদের প্রিমিয়াম ডিজিটাল শপে স্বাগতম।";
 
 var welcome =
-  "✦ *ISRAFILXSHOP* ✦\n" +
+  "✦ *" + shopName + "* ✦\n" +
   "👑 *PREMIUM DASHBOARD*\n" +
   "━━━━━━━━━━━━━━━━━━\n\n" +
   "🌙 আসসালামু আলাইকুম, *" + fullName + "*! 👋\n" +
-  "💎 আমাদের প্রিমিয়াম ডিজিটাল শপে স্বাগতম।\n\n" +
+  "💎 " + welcomeLine + "\n\n" +
   "👤 *আপনার প্রোফাইল*\n" +
   "• নাম: " + fullName + "\n" +
   "• User ID: " + user.telegramid + "\n" +
@@ -23,7 +25,7 @@ var welcome =
   "💰 *অ্যাকাউন্ট ব্যালেন্স*\n" +
   "ব্যালেন্স সিস্টেম সেটআপ বাকি\n\n" +
   "🛍️ *আমাদের সার্ভিস বেছে নিন*\n" +
-  "💠 ISRAFILXSHOP — PREMIUM SERVICE";
+  "💠 " + shopName + " — PREMIUM SERVICE";
 
 var keyboard =
   "💎 Diamond Top-up, 🎮 Free Fire Items\n" +
