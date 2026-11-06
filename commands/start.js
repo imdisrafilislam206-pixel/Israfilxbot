@@ -20,9 +20,25 @@ if(uid===OWNER){
 var users=Bot.getProperty("ffg_all_users",[]);
 if(!Array.isArray(users))users=[];
 if(users.indexOf(uid)<0){users.push(uid);Bot.setProperty("ffg_all_users",users,"json");}
-Bot.setProperty("ffg_user_"+uid,{name:String(user.first_name||"Telegram User"),username:String(user.username||""),id:uid,last_seen:new Date().toISOString()},"json");
+var profile=Bot.getProperty("ffg_user_"+uid,{});
+if(!profile||typeof profile!=="object")profile={};
+profile.name=String(user.first_name||profile.name||"Telegram User");
+profile.username=String(user.username||profile.username||"");
+profile.id=uid;
+profile.last_seen=new Date().toISOString();
+Bot.setProperty("ffg_user_"+uid,profile,"json");
 if(uid===OWNER){
- Bot.sendKeyboard("👑 অ্যাডমিন প্যানেল, 👥 ইউজার ম্যানেজমেন্ট\n🔐 পারমিশন ম্যানেজমেন্ট, 📢 গ্রুপ পোস্ট\n💬 সাপোর্ট ইনবক্স, ⚙️ API সেটিংস\n💰 ব্যালেন্স ও লেনদেন, 🛍️ প্রোডাক্ট ও প্রাইস\n🔄 রিফ্রেশ মেনু, 🏠 মূল মেনু","🌟 GUILD GLORY — OWNER CONTROL CENTER\nআপনার Owner ID যাচাই হয়েছে। সব Owner permissions সক্রিয়।");
+ Bot.sendInlineKeyboard([
+  [{title:"👑 অ্যাডমিন প্যানেল",command:"/admin"}],
+  [{title:"👥 ইউজার ম্যানেজমেন্ট",command:"/adminusers"},{title:"🔐 পারমিশন",command:"/permissions"}],
+  [{title:"📢 গ্রুপ পোস্ট",command:"/grouppost"},{title:"💬 সাপোর্ট ইনবক্স",command:"/supportinbox"}],
+  [{title:"🛍️ প্রোডাক্ট ও প্রাইস",command:"/pricing"},{title:"💰 ব্যালেন্স",command:"/account"}],
+  [{title:"📊 রিপোর্ট",command:"/groups"},{title:"⚙️ API সেটিংস",command:"/apisetup"}]
+ ],"🌟 GUILD GLORY — OWNER CONTROL CENTER\nআপনার Owner ID যাচাই হয়েছে। নিচের বাটন থেকে কাজ বেছে নিন।");
 }else{
- Bot.sendKeyboard("🛍️ প্রোডাক্ট ও প্রাইস, 💬 সাপোর্টে যোগাযোগ\n🔐 পারমিশন অনুরোধ, 🏠 মূল মেনু","🌟 WELCOME TO GUILD GLORY\nনিচের মেনু থেকে আপনার প্রয়োজনীয় সেবা বেছে নিন।");
+ Bot.sendInlineKeyboard([
+  [{title:"🛍️ প্রোডাক্ট ও প্রাইস",command:"/pricing"}],
+  [{title:"💬 সাপোর্টে যোগাযোগ",command:"/contactadmin"}],
+  [{title:"🔐 পারমিশন অনুরোধ",command:"/requestpermission"}]
+ ],"🌟 WELCOME TO GUILD GLORY\nস্বাগতম! নিচের বাটন থেকে প্রয়োজনীয় সেবা বেছে নিন।");
 }
