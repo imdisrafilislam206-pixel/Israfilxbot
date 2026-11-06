@@ -25,4 +25,10 @@ if (!key) { Bot.sendMessage("Permission key পাওয়া যায়নি।")
 var current = Bot.getProperty("ffg_perm_" + id + "_" + key, false) === true;
 var next = !current;
 Bot.setProperty("ffg_perm_" + id + "_" + key, next, "boolean");
-Bot.sendMessage((next ? "✅ ON: " : "❌ OFF: ") + key + " — User ID " + id);
+var labels={admin:"👑 Admin Panel",products:"🛍️ Products",orders:"📦 Orders",users:"👥 User Management",balance:"💰 Balance & Transactions",group_post:"📢 Group Post",support:"💬 Customer Support",api:"⚙️ API Settings",reports:"📊 Reports"};
+var keys=["admin","products","orders","users","balance","group_post","support","api","reports"];
+var names=["👑 Admin Panel","🛍️ Products","📦 Orders","👥 User Management","💰 Balance & Transactions","📢 Group Post","💬 Customer Support","⚙️ API Settings","📊 Reports"];
+var buttons=[],summary="🔐 PERMISSION CONTROL\nUser ID: "+id+"\n\n";
+for(var i=0;i<keys.length;i++){var on=Bot.getProperty("ffg_perm_"+id+"_"+keys[i],false)===true;summary+=(on?"🟢 চালু  ":"🔴 বন্ধ  ")+names[i]+"\n";buttons.push([{title:(on?"🟢 ":"🔴 ")+names[i],command:"/setpermission "+keys[i]}]);}
+buttons.push([{title:"↩️ Admin Panel",command:"/admin"},{title:"🏠 Home",command:"/start"}]);
+Bot.sendInlineKeyboard(buttons,(next?"✅ চালু: ":"❌ বন্ধ: ")+labels[key]+"\n\n"+summary);
