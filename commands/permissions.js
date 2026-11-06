@@ -21,7 +21,7 @@ var keyboard="",summary="🔐 PERMISSION MANAGER\nUser ID: "+id+"\n\n";
 for(var i=0;i<keys.length;i++){
  var on=Bot.getProperty("ffg_perm_"+id+"_"+keys[i],false)===true;
  summary+=(on?"✅ ":"❌ ")+labels[i]+"\n";
- keyboard+=(on?"❌ ":"✅ ")+"/setpermission "+keys[i]+"\n";
+ keyboard+="/setpermission "+keys[i]+"\n";
 }
 keyboard+="/admin";
 Bot.sendKeyboard(keyboard,summary+"\nনিচের বাটনে চাপলে সংশ্লিষ্ট permission ON/OFF হবে।");
