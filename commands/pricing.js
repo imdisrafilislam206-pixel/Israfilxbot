@@ -6,7 +6,7 @@
   folder: 
   answer: 
   keyboard: 
-  aliases: 
+  aliases: 🛍️ প্রোডাক্ট ও প্রাইস
   group: 
 CMD*/
 
